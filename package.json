@@ -1,10 +1,10 @@
 {
-  "name": "mern-pdf-store-server",
+  "name": "mern-pdf-store-service",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

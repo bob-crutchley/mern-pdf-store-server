@@ -4,11 +4,12 @@ const httpStatusCode = require('../../constant/httpStatusCode');
 
 module.exports = service => {
     mongoDB(database => {
-        database.collection(pdfConfig.databaseCollectionName).getAll().then(result => {
+        database.collection(pdfConfig.databaseCollectionName).find().toArray((error, result) => {
+            if (error) {
+                console.error(error);
+                service({status: httpStatusCode.INTERNAL_SERVER_ERROR, value: 'could not create'});
+            }
             service({status: httpStatusCode.OK, value: result})
-        }).catch(error => {
-            console.error(error);
-            service({status: httpStatusCode.INTERNAL_SERVER_ERROR})
-        });
+        })
     });
 };

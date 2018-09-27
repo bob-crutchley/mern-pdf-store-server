@@ -3,4 +3,5 @@ let databaseConfig = {
     host: 'mongodb',
     port: 27017
 };
+
 module.exports = databaseConfig;

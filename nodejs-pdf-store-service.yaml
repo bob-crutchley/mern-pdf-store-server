@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mern-pdf-store-server
+  name: nodejs-pdf-store-service
   labels:
-    app: mern-pdf-store-server
+    app: nodejs-pdf-store-service
 spec:
   selector:
     matchLabels:
-      app: mern-pdf-store-server
+      app: nodejs-pdf-store-service
   template:
     metadata:
       labels:
-        app: mern-pdf-store-server
+        app: nodejs-pdf-store-service
     spec:
       containers:
-      - name: mern-pdf-store-server
-        image: bobcrutchley/mern-pdf-store-server:latest
+      - name: nodejs-pdf-store-service
+        image: bobcrutchley/nodejs-pdf-store-service:latest
         ports:
         - name: http-port
           containerPort: 3001
@@ -23,11 +23,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mern-pdf-store-server
+  name: nodejs-pdf-store-service
 spec:
   type: NodePort
   ports:
     - port: 3001
   selector:
-    app: mern-pdf-store-server
+    app: nodejs-pdf-store-service
 
